@@ -1,7 +1,7 @@
 const assert = require('assert')
 const ganache = require('ganache-cli')
 const Web3 = require('web3')
-const {bytecode, interface} = require('../compile')
+const {abi, evm} = require('../compile')
 
 const web3 = new Web3(ganache.provider())
 
@@ -21,8 +21,8 @@ beforeEach(async () => {
     console.log('account available: ',accounts)
 
     //use the first account to deploy the contract
-    inbox = await new web3.eth.Contract(JSON.parse(interface))
-        .deploy({data: bytecode, arguments: ['Hi there!']})
+    inbox = await new web3.eth.Contract(abi)
+        .deploy({data: evm.bytecode.object, arguments: ['Hi there!']})
         .send({from: accounts[0], gas: '1000000'})
 
 })
