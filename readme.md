@@ -124,6 +124,6 @@ const deploy = async() => {
 }
 ```
 
-## Check the contract is deployed on Etherscan
+## Check the contract on Etherscan
 https://rinkeby.etherscan.io/address/0x8C4eb414c6276a1518c36B70E65C73d73c5CCafD
 
